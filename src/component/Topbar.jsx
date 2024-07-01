@@ -3,16 +3,19 @@ import Menulist from "./Menulist";
 
 const Topbar = () => {
   return (
-    <div className="topbar bg-blue-400 flex justify-around h-16 ">
-      <div className="logo w-16 h-16 bg-gray-400">
+    <div className="topbar bg-blue-400 flex justify-around h-16 sticky top-0 ">
+      <div className="logo w-16 h-16 ">
         <img src="../src/assets/warmindev_photo_600x600.svg" alt="" />
       </div>
       <div className="nav w-1/2 h-full flex flex-col justify-center ">
         <Menulist />
       </div>
-      <div className="login my-2 px-5 border border-black items-center flex">
-        <>login</>
-      </div>
+      <a
+        href=""
+        className="login my-4 px-5  hover:bg-red-500 rounded-xl hover:text-white  items-center font-bold flex"
+      >
+        <>Logout</>
+      </a>
     </div>
   );
 };
