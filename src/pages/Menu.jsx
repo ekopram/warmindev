@@ -93,7 +93,7 @@ const Menu = () => {
         <h1 className=" mt-48 text-center text-3xl">TOP MENU</h1>
         <div className=" flex gap-5 justify-center mt-10">{listTopMenus}</div>
       </section>
-      <section className="w-full h-[60vh]">
+      <section className="w-full h-[80vh]">
         <h1 className=" mt-20 text-center text-3xl">MENU</h1>
         <div className=" grid grid-cols-3 gap-5  mt-10 w-fit mr-auto ml-auto">
           {listMenus}

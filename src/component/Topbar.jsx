@@ -12,9 +12,9 @@ const Topbar = () => {
       </div>
       <a
         href=""
-        className="login my-4 px-5  hover:bg-red-500 rounded-xl hover:text-white  items-center font-bold flex"
+        className="login my-4 px-5 text-red-500  hover:bg-red-500 rounded-xl hover:text-white  items-center font-bold flex"
       >
-        <>Logout</>
+        <>Sign out</>
       </a>
     </div>
   );
