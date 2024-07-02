@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "../component/Product";
+import Slider from "../component/Slider";
 
 const Menu = () => {
   const topMenus = [
@@ -85,6 +86,9 @@ const Menu = () => {
 
   return (
     <>
+      <section className="w-full h-[60vh]">
+        <Slider />
+      </section>
       <section className="w-full h-[60vh]">
         <h1 className=" mt-20 text-center text-3xl">TOP MENU</h1>
         <div className=" flex gap-5 justify-center mt-10">{listTopMenus}</div>

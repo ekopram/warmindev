@@ -3,7 +3,7 @@ import Menulist from "./Menulist";
 
 const Topbar = () => {
   return (
-    <div className="topbar bg-blue-400 flex justify-around h-16 sticky top-0 ">
+    <div className="topbar bg-blue-500 bg-opacity-25 flex justify-around h-16 sticky top-0 ">
       <div className="logo w-16 h-16 ">
         <img src="../src/assets/warmindev_photo_600x600.svg" alt="" />
       </div>
