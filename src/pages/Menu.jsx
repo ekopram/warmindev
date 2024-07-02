@@ -90,7 +90,7 @@ const Menu = () => {
         <Slider />
       </section>
       <section className="w-full h-[60vh]">
-        <h1 className=" mt-20 text-center text-3xl">TOP MENU</h1>
+        <h1 className=" mt-48 text-center text-3xl">TOP MENU</h1>
         <div className=" flex gap-5 justify-center mt-10">{listTopMenus}</div>
       </section>
       <section className="w-full h-[60vh]">
