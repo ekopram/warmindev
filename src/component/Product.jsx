@@ -2,7 +2,7 @@ import React from "react";
 
 const Product = (props) => {
   return (
-    <div className="w-56 h-56 p-1 flex flex-col items-center">
+    <div className="w-52 h-56 p-1 flex flex-col items-center">
       <img className="w-32 h-32" src={props.menus.image} alt="" />
       <h1>{props.menus.name}</h1>
       <div className="flex justify-between w-4/5 mt-12">
