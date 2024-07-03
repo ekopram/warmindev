@@ -11,6 +11,11 @@ function App() {
   const [menuCart, setMenuCart] = useState([]);
 
   const handleClick = (menu) => {
+    // const menuExist = menuCart.find((item) => item.id === menu.id);
+    // if (menuExist) {
+    //   setMenuCart(
+    //     [...menuCart, ]);
+    // }
     setMenuCart([...menuCart, menu]);
   };
 

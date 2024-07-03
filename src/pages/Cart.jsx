@@ -13,7 +13,7 @@ const Cart = ({ menuCart }) => {
             </div>
           </td>
           <td className="">{menu.price}</td>
-          <td className="">{menu.stock}</td>
+          <td className="">{menu.quantity}</td>
           <td className="">2</td>
           <td className="">
             <button className="bg-red-500 py-1 px-3 hover:bg-red-700 rounded-md text-white">
