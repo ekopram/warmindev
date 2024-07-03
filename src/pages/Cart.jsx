@@ -1,54 +1,9 @@
 import React from "react";
 
-const Cart = () => {
-  const menus = [
-    {
-      id: 4,
-      name: "Roti bakar coklat",
-      image: "../src/assets/product/coklat.png",
-      price: 12000,
-      stock: 1,
-    },
-    {
-      id: 5,
-      name: "Nasi goreng gila",
-      image: "../src/assets/product/babat.png",
-      price: 17000,
-      stock: 4,
-    },
-    {
-      id: 6,
-      name: "Es goodday",
-      image: "../src/assets/product/goodday.png",
-      price: 10000,
-      stock: 6,
-    },
-    {
-      id: 7,
-      name: "Indomie goreng",
-      image: "../src/assets/product/indomie-goreng.png",
-      price: 15000,
-      stock: 3,
-    },
-    {
-      id: 8,
-      name: "Indomie rebus",
-      image: "../src/assets/product/indomie-rebus.png",
-      price: 17000,
-      stock: 4,
-    },
-    {
-      id: 9,
-      name: "Es jeruk",
-      image: "../src/assets/product/jeruk.png",
-      price: 10000,
-      stock: 6,
-    },
-  ];
-
+const Cart = ({ menuCart }) => {
   const listMenu = (
     <>
-      {menus.map((menu, index) => (
+      {menuCart.map((menu, index) => (
         <tr key={menu.id}>
           <td className="">{index + 1}</td>
           <td className="">

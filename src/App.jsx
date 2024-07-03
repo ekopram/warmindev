@@ -8,20 +8,20 @@ import Contact from "./pages/Contact";
 import { useState } from "react";
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [menuCart, setMenuCart] = useState([]);
 
   const handleClick = (menu) => {
-    setCart([...cart, menu]);
+    setMenuCart([...menuCart, menu]);
   };
 
   return (
     <BrowserRouter>
       <>
-        <Topbar number={cart.length} />
+        <Topbar number={menuCart.length} />
       </>
       <Routes>
         <Route path="/" element={<Menu handleClick={handleClick} />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/cart" element={<Cart menuCart={menuCart} />}></Route>
         <Route path="/order" element={<Order />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Routes>
