@@ -2,7 +2,7 @@ import React from "react";
 import Product from "../component/Product";
 import Slider from "../component/Slider";
 
-const Menu = () => {
+const Menu = ({ handleClick }) => {
   const topMenus = [
     {
       id: 1,
@@ -74,13 +74,13 @@ const Menu = () => {
 
   const listTopMenus = topMenus.map((menu) => (
     <div className="card bg-white shadow-md p-2 w-56 h-64 ">
-      <Product menus={menu} />
+      <Product menus={menu} key={menus.id} handleClick={handleClick} />
     </div>
   ));
 
   const listMenus = menus.map((menu) => (
     <div className="card bg-white shadow-md p-2 w-56 h-64 ">
-      <Product menus={menu} />
+      <Product menus={menu} key={menus.id} handleClick={handleClick} />
     </div>
   ));
 

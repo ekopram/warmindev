@@ -5,7 +5,7 @@ import { BiSolidPurchaseTag } from "react-icons/bi";
 import { IoCall } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-const Menulist = () => {
+const Menulist = ({ number }) => {
   const menu = [
     {
       name: "Menu",
@@ -14,7 +14,14 @@ const Menulist = () => {
     },
     {
       name: "Cart",
-      icon: <IoMdCart />,
+      icon: (
+        <>
+          <span className="bg-red-500 text-white relative -top-2 text-xs rounded-md font-semibold px-1">
+            {number}
+          </span>
+          <IoMdCart />
+        </>
+      ),
       link: "/cart",
     },
     {
@@ -30,7 +37,7 @@ const Menulist = () => {
   ];
 
   const listMenu = menu.map((menu) => (
-    <li>
+    <li key={menu.name}>
       <Link
         className="px-5 py-1 rounded-xl hover:bg-blue-300 flex items-center"
         to={menu.link}
