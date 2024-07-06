@@ -2,85 +2,16 @@ import React from "react";
 import Product from "../component/Product";
 import Slider from "../component/Slider";
 
-const Menu = ({ handleClick }) => {
-  const topMenus = [
-    {
-      id: 1,
-      name: "Nasi goreng ayam",
-      image: "../src/assets/product/ayam.png",
-      price: 15000,
-      stock: 3,
-    },
-    {
-      id: 2,
-      name: "Nasi goreng babat",
-      image: "../src/assets/product/babat.png",
-      price: 17000,
-      stock: 4,
-    },
-    {
-      id: 3,
-      name: "Roti bakar blueberry",
-      image: "../src/assets/product/blueberry.png",
-      price: 10000,
-      stock: 6,
-    },
-  ];
-
-  const menus = [
-    {
-      id: 4,
-      name: "Roti bakar coklat",
-      image: "../src/assets/product/coklat.png",
-      price: 12000,
-      stock: 1,
-    },
-    {
-      id: 5,
-      name: "Nasi goreng gila",
-      image: "../src/assets/product/babat.png",
-      price: 17000,
-      stock: 4,
-    },
-    {
-      id: 6,
-      name: "Es goodday",
-      image: "../src/assets/product/goodday.png",
-      price: 10000,
-      stock: 6,
-    },
-    {
-      id: 7,
-      name: "Indomie goreng",
-      image: "../src/assets/product/indomie-goreng.png",
-      price: 15000,
-      stock: 3,
-    },
-    {
-      id: 8,
-      name: "Indomie rebus",
-      image: "../src/assets/product/indomie-rebus.png",
-      price: 17000,
-      stock: 4,
-    },
-    {
-      id: 9,
-      name: "Es jeruk",
-      image: "../src/assets/product/jeruk.png",
-      price: 10000,
-      stock: 6,
-    },
-  ];
-
+const Menu = ({ handleAddProduct, topMenus, menus }) => {
   const listTopMenus = topMenus.map((menu) => (
     <div className="card bg-white shadow-md p-2 w-56 h-64 ">
-      <Product menus={menu} key={menus.id} handleClick={handleClick} />
+      <Product menu={menu} key={menu.id} handleAddProduct={handleAddProduct} />
     </div>
   ));
 
   const listMenus = menus.map((menu) => (
     <div className="card bg-white shadow-md p-2 w-56 h-64 ">
-      <Product menus={menu} key={menus.id} handleClick={handleClick} />
+      <Product menu={menu} key={menus.id} handleAddProduct={handleAddProduct} />
     </div>
   ));
 
