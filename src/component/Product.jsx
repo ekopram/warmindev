@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = ({ menu, handleClick }) => {
+const Product = ({ menu, handleAddProduct }) => {
   // console.log(menu);
   // console.log({ handleClick });
 
@@ -11,7 +11,7 @@ const Product = ({ menu, handleClick }) => {
       <div className="flex justify-between w-4/5 mt-12">
         <h1 className="p-1 font-bold">Rp.{menu.price}</h1>
         <button
-          onClick={() => handleClick(menu)}
+          onClick={() => handleAddProduct(menu)}
           className="py-1 px-6 hover:bg-lime-600 hover:scale-105 bg-lime-500 rounded-md"
         >
           Add

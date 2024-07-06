@@ -4,14 +4,14 @@ import Slider from "../component/Slider";
 
 const Menu = ({ handleAddProduct, topMenus, menus }) => {
   const listTopMenus = topMenus.map((menu) => (
-    <div className="card bg-white shadow-md p-2 w-56 h-64 ">
-      <Product menu={menu} key={menu.id} handleAddProduct={handleAddProduct} />
+    <div key={menu.id} className="card bg-white shadow-md p-2 w-56 h-64 ">
+      <Product menu={menu} handleAddProduct={handleAddProduct} />
     </div>
   ));
 
   const listMenus = menus.map((menu) => (
-    <div className="card bg-white shadow-md p-2 w-56 h-64 ">
-      <Product menu={menu} key={menus.id} handleAddProduct={handleAddProduct} />
+    <div key={menu.id} className="card bg-white shadow-md p-2 w-56 h-64 ">
+      <Product menu={menu} handleAddProduct={handleAddProduct} />
     </div>
   ));
 
