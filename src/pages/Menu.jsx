@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Product from "../component/Product";
 import Slider from "../component/Slider";
 import { FaSearch } from "react-icons/fa";
 
 const Menu = ({ handleAddProduct, topMenus, menus }) => {
+  const [item, setItem] = useState(menus);
+  const menuItems = [...new Set(menus.map((val) => val.categories))];
+
+  const filterItems = (cat) => {
+    const newItems = menus.filter((newVal) => newVal.categories === cat);
+    setItem(newItems);
+  };
+
   const listTopMenus = topMenus.map((menu) => (
     <div key={menu.id} className="card bg-white drop-shadow-xl p-2 w-52 h-64 ">
       <Product menu={menu} handleAddProduct={handleAddProduct} />
     </div>
   ));
 
-  const listMenus = menus.map((menu) => (
+  const listMenus = item.map((menu) => (
     <div key={menu.id} className="card bg-white drop-shadow-xl p-2 w-52 h-64 ">
       <Product menu={menu} handleAddProduct={handleAddProduct} />
     </div>
@@ -39,18 +47,20 @@ const Menu = ({ handleAddProduct, topMenus, menus }) => {
             </button>
           </div>
           <div className="flex gap-5 justify-center mt-10">
-            <div className="bg-white rounded-full drop-shadow-xl py-1 px-4 hover:bg-black hover:text-white">
-              Food
-            </div>
-            <div className="bg-white rounded-full drop-shadow-xl py-1 px-4 hover:bg-black hover:text-white">
-              Drink
-            </div>
-            <div className="bg-white rounded-full drop-shadow-xl py-1 px-4 hover:bg-black hover:text-white">
-              Snack
-            </div>
-            <div className="bg-white rounded-full drop-shadow-xl py-1 px-4 hover:bg-black hover:text-white">
-              Desert
-            </div>
+            {menuItems.map((val) => (
+              <button
+                onClick={() => filterItems(val)}
+                className="bg-white rounded-full drop-shadow-xl py-1 px-4 hover:bg-black hover:text-white"
+              >
+                {val}
+              </button>
+            ))}
+            <button
+              onClick={() => setItem(menus)}
+              className="bg-white rounded-full drop-shadow-xl py-1 px-4 hover:bg-black hover:text-white"
+            >
+              All
+            </button>
           </div>
           <div className=" grid grid-cols-3 gap-5  mt-10 w-fit mr-auto ml-auto">
             {listMenus}
