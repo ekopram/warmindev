@@ -3,7 +3,7 @@ import Product from "../component/Product";
 import Slider from "../component/Slider";
 import { FaSearch } from "react-icons/fa";
 
-const Menu = ({ handleAddProduct, topMenus, menus }) => {
+const Menu = ({ handleAddProduct, menus }) => {
   const [item, setItem] = useState(menus);
   const [search, setSearch] = useState("");
 
@@ -14,11 +14,16 @@ const Menu = ({ handleAddProduct, topMenus, menus }) => {
     setItem(newItems);
   };
 
-  const listTopMenus = topMenus.map((menu) => (
-    <div key={menu.id} className="card bg-white drop-shadow-xl p-2 w-52 h-64 ">
-      <Product menu={menu} handleAddProduct={handleAddProduct} />
-    </div>
-  ));
+  const listTopMenus = menus
+    .filter((newMenus) => newMenus.isRecommended === true)
+    .map((menu) => (
+      <div
+        key={menu.id}
+        className="card bg-white drop-shadow-xl p-2 w-52 h-64 "
+      >
+        <Product menu={menu} handleAddProduct={handleAddProduct} />
+      </div>
+    ));
 
   const listMenus = item
     .filter((val) => {

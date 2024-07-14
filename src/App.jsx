@@ -7,7 +7,7 @@ import Order from "./pages/Order";
 import Contact from "./pages/Contact";
 import { useState } from "react";
 
-const topMenus = [
+const menus = [
   {
     id: 1,
     name: "Nasi goreng ayam",
@@ -15,6 +15,7 @@ const topMenus = [
     categories: "food",
     price: 15000,
     stock: 3,
+    isRecommended: false,
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const topMenus = [
     categories: "food",
     price: 17000,
     stock: 4,
+    isRecommended: true,
   },
   {
     id: 3,
@@ -31,10 +33,8 @@ const topMenus = [
     categories: "snack",
     price: 10000,
     stock: 6,
+    isRecommended: false,
   },
-];
-
-const menus = [
   {
     id: 4,
     name: "Roti bakar coklat",
@@ -42,6 +42,7 @@ const menus = [
     categories: "desert",
     price: 12000,
     stock: 1,
+    isRecommended: true,
   },
   {
     id: 5,
@@ -50,6 +51,7 @@ const menus = [
     categories: "food",
     price: 17000,
     stock: 4,
+    isRecommended: true,
   },
   {
     id: 6,
@@ -58,6 +60,7 @@ const menus = [
     categories: "drink",
     price: 10000,
     stock: 6,
+    isRecommended: false,
   },
   {
     id: 7,
@@ -66,6 +69,7 @@ const menus = [
     categories: "food",
     price: 15000,
     stock: 3,
+    isRecommended: false,
   },
   {
     id: 8,
@@ -74,6 +78,7 @@ const menus = [
     categories: "food",
     price: 17000,
     stock: 4,
+    isRecommended: false,
   },
   {
     id: 9,
@@ -82,6 +87,7 @@ const menus = [
     categories: "drink",
     price: 10000,
     stock: 6,
+    isRecommended: false,
   },
 ];
 
@@ -133,7 +139,6 @@ function App() {
           element={
             <Menu
               handleAddProduct={handleAddProduct}
-              topMenus={topMenus}
               menus={menus}
               cartItems={cartItems}
             />
