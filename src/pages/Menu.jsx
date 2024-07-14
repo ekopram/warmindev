@@ -5,6 +5,8 @@ import { FaSearch } from "react-icons/fa";
 
 const Menu = ({ handleAddProduct, topMenus, menus }) => {
   const [item, setItem] = useState(menus);
+  const [search, setSearch] = useState("");
+
   const menuItems = [...new Set(menus.map((val) => val.categories))];
 
   const filterItems = (cat) => {
@@ -18,11 +20,22 @@ const Menu = ({ handleAddProduct, topMenus, menus }) => {
     </div>
   ));
 
-  const listMenus = item.map((menu) => (
-    <div key={menu.id} className="card bg-white drop-shadow-xl p-2 w-52 h-64 ">
-      <Product menu={menu} handleAddProduct={handleAddProduct} />
-    </div>
-  ));
+  const listMenus = item
+    .filter((val) => {
+      if (search === "") {
+        return val;
+      } else if (val.name.toLowerCase().includes(search.toLocaleLowerCase())) {
+        return val;
+      }
+    })
+    .map((menu) => (
+      <div
+        key={menu.id}
+        className="card bg-white drop-shadow-xl p-2 w-52 h-64 "
+      >
+        <Product menu={menu} handleAddProduct={handleAddProduct} />
+      </div>
+    ));
 
   return (
     <main className="bg-[url('./assets/background/bg.png')] ">
@@ -41,6 +54,7 @@ const Menu = ({ handleAddProduct, topMenus, menus }) => {
               className="drop-shadow-xl rounded-lg p-2"
               placeholder="search"
               type="search"
+              onChange={(e) => setSearch(e.target.value)}
             />
             <button className="bg-white drop-shadow-xl px-4 rounded-lg text-xl hover:bg-blue-500 hover:text-white">
               <FaSearch />
