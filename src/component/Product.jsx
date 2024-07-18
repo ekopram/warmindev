@@ -1,5 +1,8 @@
 import React from "react";
 
+const CDNURL =
+  "https://drkktokcafsrjqgruyff.supabase.co/storage/v1/object/public/images/public/";
+
 const Product = ({ menu, handleAddProduct }) => {
   // console.log(menu);
   // console.log({ handleClick });
@@ -7,7 +10,7 @@ const Product = ({ menu, handleAddProduct }) => {
   return (
     <>
       <div className="w-48 h-48 p-1 flex flex-col items-center">
-        <img className="w-36 h-36" src={menu.image} alt="" />
+        <img className="w-36 h-36" src={`${CDNURL}${menu.image}`} alt="" />
         <h1>{menu.name}</h1>
       </div>
       <div className="flex justify-center gap-3 w-full">

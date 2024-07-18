@@ -5,13 +5,32 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
 import Contact from "./pages/Contact";
-import { useState } from "react";
-import Data from "./component/menu";
-
-const menus = Data;
+import { useEffect, useState } from "react";
+import { supabase } from "./createClient";
+import PostProduct from "./pages/PostProduct";
+import PostMenus from "./pages/PostMenus";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [menus, setMenus] = useState([]);
+  // const supabase = useSupabaseClient();
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  async function getProducts() {
+    try {
+      const { data, error } = await supabase.from("products").select("*");
+      if (error) throw error;
+      if (data != null) {
+        setMenus(data);
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  }
 
   const handleAddProduct = (product) => {
     const ProductExist = cartItems.find((item) => item.id === product.id);
@@ -76,6 +95,8 @@ function App() {
         ></Route>
         <Route path="/order" element={<Order />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/postproduct" element={<PostProduct />}></Route>
+        <Route path="/menu" element={<PostMenus />}></Route>
       </Routes>
     </BrowserRouter>
   );

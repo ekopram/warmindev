@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Product from "../component/Product";
 import Slider from "../component/Slider";
 import { FaSearch } from "react-icons/fa";
+import { supabase } from "../createClient";
 
 const Menu = ({ handleAddProduct, menus }) => {
-  const [item, setItem] = useState(menus);
+  const [item, setItem] = useState([]);
   const [search, setSearch] = useState("");
 
-  const menuItems = [...new Set(menus.map((val) => val.categories))];
+  useEffect(() => {
+    setItem(menus);
+  }, [menus]);
+
+  const menuItems = [...new Set(menus.map((val) => val.category))];
 
   const filterItems = (cat) => {
-    const newItems = menus.filter((newVal) => newVal.categories === cat);
+    const newItems = menus.filter((newVal) => newVal.category === cat);
     setItem(newItems);
   };
 
@@ -68,6 +73,7 @@ const Menu = ({ handleAddProduct, menus }) => {
           <div className="flex gap-5 justify-center mt-10">
             {menuItems.map((val) => (
               <button
+                key={val}
                 onClick={() => filterItems(val)}
                 className="bg-white rounded-full drop-shadow-xl py-1 px-4 hover:bg-black hover:text-white"
               >
