@@ -12,9 +12,21 @@ import PostMenus from "./pages/PostMenus";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [menus, setMenus] = useState([]);
+  // const [user, setUser] = useState(null);
   // const supabase = useSupabaseClient();
+
+  // const login = async () => {
+  //   await supabase.auth.signInWithOAuth({
+  //     provider: "google",
+  //   });
+  // };
+  // const logout = async () => {
+  //   await supabase.auth.signOut({
+  //     provider: "google",
+  //   });
+  // };
 
   useEffect(() => {
     getProducts();
@@ -69,7 +81,12 @@ function App() {
   return (
     <BrowserRouter>
       <>
-        <Topbar number={cartItems.length} />
+        <Topbar
+          number={cartItems.length}
+          // login={login}
+          supabase={supabase}
+          // logout={logout}
+        />
       </>
       <Routes>
         <Route
